@@ -1,0 +1,87 @@
+@mixin DisplayFlex($direction, $justify, $align) {
+    display: flex;
+    flex-direction: $direction;
+    justify-content: $justify;
+    align-items: $align;
+}
+
+@mixin Resert {
+    margin: 0;
+    padding: 0;
+    box-sizing: 0;
+}
+
+* {
+    @include Resert();
+}
+
+body {
+    @include DisplayFlex(column, flex-start, center);
+    height: 100vh;
+    width: 100vw;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+header {
+    @include DisplayFlex(row, center, center);
+    
+    height: 100px;
+    width: inherit;
+    background-color: #000;
+
+    h1 {
+        color: orangered;
+        font-size: 2rem;
+        letter-spacing: 2.5px;
+    }
+}
+
+main {
+    @include DisplayFlex(column, center, center);
+    flex-grow: 1;
+    gap: 30px;
+
+    width: inherit;
+    
+    #container-button {
+        @include DisplayFlex(row, space-between, center);
+        gap: 20px;
+        
+        height: 40px;
+        width: 600px;
+
+        button {
+            height: 40px;
+            width: 120px;
+            
+            background-color: black;
+            border: 1px solid black;
+            color: orangered;
+            border-radius: 3px;
+            cursor: pointer;
+            transition: 0.5s;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            
+            &:hover {
+                background-color: #000A;
+                border: none;
+                transition: 0.5s;
+            }
+        }
+    }
+}
+
+footer {
+    @include DisplayFlex(row, center, center);
+
+    height: 50px;
+    width: inherit;
+    background-color: #000;
+
+    span {
+        color: orangered;
+        font-size: 0.9rem;
+        font-style: italic;
+    }
+}
